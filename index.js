@@ -1,26 +1,43 @@
-var express = require('express');
-var app = express();
-var request = require('request');
+/*jshint esnext: true */
+(function () {
+    "use strict";
+    const express = require('express');
+    const request = require('request');
+    const app = express();
 
-app.get('/', function (req, res) {
-    payload={"text": "This is a line of text in a channel.\nAnd this is another line of text."};
+    // Slack API Entry Point
+    const url = 'https://hooks.slack.com/services/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';
 
-    var url = 'https://hooks.slack.com/services/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';
-    var options = {
-        method: 'post',
-        body: payload,
-        json: true,
-        url: url
-    };
 
-    request(options, function (err, res, body) {
-        if (err) {
-            console.log('error');
-        }
+    app.get('/', function (req, res) {
+        let channel = req.query.channel;
+        let username = req.query.username;
+        let message = req.query.message;
+
+        let payload = {
+                    "channel" : channel,
+                    "username": username,
+                    "text": message
+                  };
+
+        let options = {
+            method: 'post',
+            body: payload,
+            json: true,
+            url: url
+        };
+
+        request(options, function (err, res, body) {
+            if (err) {
+                console.log(err);
+            }
+        });
+
+      res.send('Posting Message: ' + message);
     });
-  res.send('Hello World!');
-});
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+    app.listen(3000, function () {
+      console.log('Example app listening on port 3000!');
+    });
+
+}());
