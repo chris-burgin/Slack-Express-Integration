@@ -21,12 +21,6 @@
                         "channel" : "#" + channel,
                         "username": 'memz bot',
                         "text": responce,
-                        "attachments": [
-                            {
-                                "fallback":responce,
-                                "image_url": responce,
-                                "thumb_url": responce
-                            }],
                         "unfurl_links": true
                       };
 
