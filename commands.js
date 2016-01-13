@@ -15,25 +15,12 @@
     // Database Functions
     const Commands = (function () {
         // Send
-        let sendmessage = function (responce, channel) {
+        let send = function (responce, channel) {
             slack.send({
                 text: responce,
             	channel: '#' + channel,
-            	username: 'Memz Bot'
-            });
-        };
-
-        let sendmeme = function (responce, channel) {
-            slack.send({
-            	channel: '#' + channel,
             	username: 'Memz Bot',
-                attachments: [
-                    {
-                        "fallback": "Great Meme.",
-                        "image_url": responce,
-                        "thumb_url": responce
-                    }
-                ]
+                unfurl_links: true,
             });
         };
 
@@ -92,7 +79,7 @@
             return 'Error: No meme by the name ' + cmd[1];
         };
 
-        return { sendmessage, sendmeme, help, add, remove, random, fetchmeme, };
+        return { send, help, add, remove, random, fetchmeme, };
     }());
     module.exports = Commands;
 }());
