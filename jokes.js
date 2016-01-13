@@ -5,19 +5,20 @@
 
     // Requirements
     const request = require('request');
+    const commands = require('./commands.js');
 
     // Database Functions
-    const Jokes = (function () {
+    const Jokes = (function (channel) {
 
         // yomama
-        let yomama = function () {
+        let yomama = function (channel) {
             const url = "http://api.yomomma.info/";
+            let joke;
             request({
                 url: url,
                 json: true
             }, function (error, response, body) {
-                console.log(body.joke);
-                return body.joke;
+                commands.send(body.joke, channel);
             });
         };
 

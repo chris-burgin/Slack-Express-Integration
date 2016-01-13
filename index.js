@@ -30,8 +30,9 @@
 
         let responce;
         if (cmd[1] === 'jokes') {
+            // Jokes Send Their Own Responce
             if (cmd[2] === 'yomama'){
-                responce = jokes.yomama();
+                jokes.yomama(channel);
             }
         } else {
             // memes
@@ -41,18 +42,14 @@
                 responce = commands.add(cmd);
             } else if (cmd[1] === 'remove') {
                 responce = commands.remove(cmd);
-
             } else if (cmd[1] === 'random') {
                 responce = commands.random(cmd);
-
             } else {
                 responce = commands.fetchmeme(cmd);
-
             }
+            // Return Meme Responce
+            commands.send(responce, channel);
         }
-
-        // Return Responce
-        commands.send(responce, channel);
 
     });
 
