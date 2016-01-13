@@ -21,7 +21,7 @@
                         "channel" : "#" + channel,
                         "username": 'memz bot',
                         "text": responce,
-                        "unfurl_links": true
+                        "unfurl_media": true
                       };
 
             let options = {
