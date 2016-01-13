@@ -1,43 +1,39 @@
 /*jshint esnext: true */
 (function () {
     "use strict";
+
+    // Requirements
     const express = require('express');
-    const request = require('request');
+    const data = require('./data.js');
+    const commands = require('./commands.js');
+
+    // Define Express
     const app = express();
 
-    // Slack API Entry Point
-    const url = 'https://hooks.slack.com/services/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';
+    app.get('/api/', function (req, res) {
 
-
-    app.get('/', function (req, res) {
+        let cmd = req.query.text;
         let channel = req.query.channel;
-        let username = req.query.username;
-        let message = req.query.message;
 
-        let payload = {
-                    "channel" : channel,
-                    "username": username,
-                    "text": message
-                  };
+        let responce;
+        cmd = cmd.split(" ");
+        if (cmd[1] === 'help') {
+            responce = commands.help(cmd);
+        } else if (cmd[1] === '--add') {
+            responce = commands.add(cmd);
+        } else if (cmd[1] === '--remove') {
+            responce = commands.remove(cmd);
+        } else if (cmd[1] === '--random') {
+            responce = commands.random(cmd);
+        } else {
+            responce = commands.fetchmeme(cmd);
+        }
 
-        let options = {
-            method: 'post',
-            body: payload,
-            json: true,
-            url: url
-        };
-
-        request(options, function (err, res, body) {
-            if (err) {
-                console.log(err);
-            }
-        });
-
-      res.send('Posting Message: ' + message);
+        commands.send(responce);
+        res.send(responce, channel);
     });
 
     app.listen(3000, function () {
-      console.log('Running: Localhost:3000');
+        console.log('Running: Localhost:3000');
     });
-
 }());
