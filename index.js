@@ -8,14 +8,14 @@
     const commands = require('./commands.js');
     var bodyParser = require('body-parser');
 
+    // Define Express
+    const app = express();
+
     // Body Parser Setup
     app.use( bodyParser.json() );
     app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
        extended: true
     }));
-
-    // Define Express
-    const app = express();
 
     app.post('/api/', function (req, res) {
 
@@ -35,7 +35,7 @@
             responce = commands.fetchmeme(cmd);
         }
 
-        
+
         res.json(responce);
     });
 
