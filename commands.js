@@ -17,7 +17,7 @@
         // Send
         let send = function (responce, channel) {
             slack.send({
-                text: responce,
+                text: "<" + responce + ">",
             	channel: '#' + channel,
             	username: 'Memz Bot',
                 unfurl_links: true,
