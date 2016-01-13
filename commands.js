@@ -5,13 +5,23 @@
     // Requirements
     const request = require('request');
     const data = require('./data.js');
+    const Slack = require('node-slack');
 
     // Slack API Entry Point
     const url = 'https://hooks.slack.com/services/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';
+    const slack = new Slack(url, options);
 
 
     // Database Functions
     const Commands = (function () {
+        // Send
+        let send = function () {
+            slack.send({
+            	text: 'Howdy!',
+            	channel: '#test',
+            	username: 'Bot'
+            });
+        };
 
         // Help
         // declare -- cmd
@@ -68,7 +78,7 @@
             return 'Error: No meme by the name ' + cmd[1];
         };
 
-        return { help, add, remove, random, fetchmeme, };
+        return { send, help, add, remove, random, fetchmeme, };
     }());
     module.exports = Commands;
 }());

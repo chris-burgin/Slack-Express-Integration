@@ -11,7 +11,9 @@
   "devDependencies": {
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
+    "node-slack": "0.0.7",
     "nodemon": "^1.8.1",
-    "request": "^2.67.0"
+    "request": "^2.67.0",
+    "slack-client": "^2.0.0-beta.2"
   }
 }
