@@ -15,11 +15,11 @@
     // Database Functions
     const Commands = (function () {
         // Send
-        let send = function () {
+        let send = function (responce, channel) {
             slack.send({
-            	text: 'Howdy!',
-            	channel: '#test',
-            	username: 'Bot'
+            	text: responce,
+            	channel: '#' + channel,
+            	username: 'Memz Boy'
             });
         };
 

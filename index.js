@@ -21,6 +21,7 @@
 
         let cmd = req.body.text;
         cmd = cmd.toLowerCase();
+        let channel = req.body.channel_name;
 
         let responce;
         cmd = cmd.split(" ");
@@ -36,9 +37,9 @@
             responce = commands.fetchmeme(cmd);
         }
 
-        commands.send();
-        responce = {"text" : responce};
-        res.json(responce);
+        commands.send(responce, channel);
+        //responce = {"text" : responce};
+        //res.json(responce);
     });
 
     app.listen(3000, function () {
