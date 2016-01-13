@@ -20,7 +20,8 @@
                 text: responce,
             	channel: '#' + channel,
             	username: 'Memz Bot',
-                unfurl_links: true
+                unfurl_links: true,
+                link_names: 1
             });
         };
 
