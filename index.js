@@ -31,9 +31,12 @@
         let responce;
         if (cmd[1] === 'jokes') {
             // Jokes Send Their Own Responce
-            if (cmd[2] === 'yomama'){
-                jokes.yomama(channel);
+            if (cmd[2] === 'mamma'){
+                jokes.yomama(cmd, channel);
+            } else if (cmd[2] === 'cn'){
+                jokes.chuck(cmd, channel);
             }
+
         } else {
             // memes
             if (cmd[1] === 'help') {
