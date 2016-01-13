@@ -18,7 +18,7 @@
     }));
 
     app.post('/api/', function (req, res) {
-
+        console.log('reqest seen');
         let cmd = req.body.text;
         cmd = cmd.toLowerCase();
         let channel = req.body.channel_name;
@@ -44,7 +44,7 @@
         } else {
             responce = commands.fetchmeme(cmd);
             commands.sendmeme(responce, channel);
-            
+
         }
         //responce = {"text" : responce};
         //res.json(responce);
