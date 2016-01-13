@@ -35,7 +35,7 @@
             responce = commands.fetchmeme(cmd);
         }
 
-
+        responce = {"text" : responce};
         res.json(responce);
     });
 
