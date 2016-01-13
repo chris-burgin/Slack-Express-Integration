@@ -20,6 +20,7 @@
             let payload = {
                         "channel" : "#" + channel,
                         "username": 'memz bot',
+                        "icon_emoji": ":taco:",
                         "text": responce,
                         "unfurl_media": true,
                         "attachments": [
