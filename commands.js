@@ -20,8 +20,13 @@
             let payload = {
                         "channel" : "#" + channel,
                         "username": 'memz bot',
-                        "text": "<" + responce + "|Slack Meme>",
-                        "unfurl_links": true
+                        "text": responce,
+                        "attachments": [
+                            {
+                                "fallback":responce,
+                                "image_url": responce,
+                                "thumb_url": responce
+                            }
                       };
 
             let options = {
