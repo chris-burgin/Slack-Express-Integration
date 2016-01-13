@@ -20,7 +20,7 @@
     app.post('/api/', function (req, res) {
 
         let cmd = req.body.text;
-
+        cmd = cmd.toLowerCase();
         let responce;
         cmd = cmd.split(" ");
         if (cmd[1] === 'help') {
