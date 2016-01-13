@@ -13,30 +13,6 @@
     // Database Functions
     const Commands = (function () {
 
-        let send = function(message, channel) {
-
-            let payload = {
-                        "channel" : "#" + channel,
-                        "username": 'memz bot',
-                        "text": message
-                      };
-
-            let options = {
-                method: 'post',
-                body: payload,
-                json: true,
-                url: url
-            };
-
-            request(options, function (err, res, body) {
-                if (err) {
-                    console.log(err);
-                }
-            });
-
-            console.log(message);
-        };
-
         // Help
         // declare -- cmd
         let help = function(cmd) {
@@ -91,7 +67,7 @@
             return 'Error: No meme by the name ' + cmd[1];
         };
 
-        return { send, help, add, remove, random, fetchmeme, };
+        return { help, add, remove, random, fetchmeme, };
     }());
     module.exports = Commands;
 }());

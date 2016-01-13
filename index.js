@@ -8,13 +8,18 @@
     const commands = require('./commands.js');
     var bodyParser = require('body-parser');
 
+    // Body Parser Setup
+    app.use( bodyParser.json() );
+    app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+       extended: true
+    }));
+
     // Define Express
     const app = express();
 
     app.post('/api/', function (req, res) {
 
         let cmd = req.body.text;
-        let channel = req.body.channel;
 
         let responce;
         cmd = cmd.split(" ");
@@ -30,8 +35,8 @@
             responce = commands.fetchmeme(cmd);
         }
 
-        commands.send(responce);
-        res.send(responce, channel);
+        
+        res.json(responce);
     });
 
     app.listen(3000, function () {
