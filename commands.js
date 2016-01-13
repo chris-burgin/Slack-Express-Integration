@@ -16,12 +16,24 @@
     const Commands = (function () {
         // Send
         let send = function (responce, channel) {
-            slack.send({
-                text: "<" + responce + ">",
-            	channel: '#' + channel,
-            	username: 'Memz Bot',
-                unfurl_links: true,
-                link_names: 1
+
+            let payload = {
+                        "channel" : "#" + channel,
+                        "username": 'memz bot',
+                        "text": responce
+                      };
+
+            let options = {
+                method: 'post',
+                body: payload,
+                json: true,
+                url: url
+            };
+
+            request(options, function (err, res, body) {
+                if (err) {
+                    console.log(err);
+                }
             });
         };
 
