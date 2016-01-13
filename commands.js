@@ -7,7 +7,7 @@
     const data = require('./data.js');
 
     // Slack API Entry Point
-    const url = 'https://hooks.slack.com/services/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';
+    const url = 'https://hooks.slack.com/services/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';
 
 
     // Database Functions

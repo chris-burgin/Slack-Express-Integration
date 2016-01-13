@@ -10,10 +10,10 @@
     // Define Express
     const app = express();
 
-    app.get('/api/', function (req, res) {
+    app.post('/api/', function (req, res) {
 
-        let cmd = req.query.text;
-        let channel = req.query.channel;
+        let cmd = req.body.text;
+        let channel = req.body.channel;
 
         let responce;
         cmd = cmd.split(" ");
