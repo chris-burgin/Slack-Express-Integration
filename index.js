@@ -4,9 +4,12 @@
 
     // Requirements
     const express = require('express');
+    var bodyParser = require('body-parser');
+
+    // Modules
     const data = require('./data.js');
     const commands = require('./commands.js');
-    var bodyParser = require('body-parser');
+    const jokes = require('./jokes.js');
 
     // Define Express
     const app = express();
@@ -21,10 +24,17 @@
         console.log('reqest seen');
         let cmd = req.body.text;
         cmd = cmd.toLowerCase();
+        cmd = cmd.split(" ");
+
         let channel = req.body.channel_name;
 
         let responce;
-        cmd = cmd.split(" ");
+        if (cmd[1] === 'jokes') {
+            if (cmd[2] === 'yomama'){
+                responce = jokes.yomama();
+            }
+        }
+        // memes
         if (cmd[1] === 'help') {
             responce = commands.help(cmd);
         } else if (cmd[1] === 'add') {
@@ -39,6 +49,8 @@
             responce = commands.fetchmeme(cmd);
 
         }
+
+        // Return Responce
         commands.send(responce, channel);
 
     });
