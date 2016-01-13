@@ -26,7 +26,7 @@
                                 "fallback":responce,
                                 "image_url": responce,
                                 "thumb_url": responce
-                            }
+                            }]
                       };
 
             let options = {
