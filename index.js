@@ -21,6 +21,7 @@
 
         let cmd = req.body.text;
         cmd = cmd.toLowerCase();
+
         let responce;
         cmd = cmd.split(" ");
         if (cmd[1] === 'help') {
@@ -35,6 +36,7 @@
             responce = commands.fetchmeme(cmd);
         }
 
+        commands.send();
         responce = {"text" : responce};
         res.json(responce);
     });
