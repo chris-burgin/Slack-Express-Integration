@@ -35,13 +35,7 @@
             responce = commands.fetchmeme(cmd);
         }
 
-        //responce = {"text" : responce};
-        responce  = { "attachments": [
-            {
-                "image_url": responce,
-                "thumb_url": responce
-            }
-        ]};
+        responce = {"text" : responce};
         res.json(responce);
     });
 
