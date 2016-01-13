@@ -26,7 +26,8 @@
                                 "fallback":responce,
                                 "image_url": responce,
                                 "thumb_url": responce
-                            }]
+                            }],
+                        "unfurl_links": true
                       };
 
             let options = {
