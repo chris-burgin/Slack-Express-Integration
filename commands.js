@@ -28,7 +28,7 @@
                              "name" : cmd[2],
                              "category" : cmd[4] };
                 data.save(meme);
-                return "Memz " + cmd[2] + "Added \nUse 'memz " + cmd[2] + "'";
+                return "We added your meme!";
             } else {
                 return "Error: Please Provide A Unique Name";
             }
