@@ -21,7 +21,14 @@
                         "channel" : "#" + channel,
                         "username": 'memz bot',
                         "text": responce,
-                        "unfurl_media": true
+                        "unfurl_media": true,
+                        "attachments": [
+                                    {
+                                        "fallback": "MEME",
+                                        "image_url": responce,
+                                        "thumb_url": responce
+                                    }
+    ]
                       };
 
             let options = {
