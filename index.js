@@ -33,21 +33,22 @@
             if (cmd[2] === 'yomama'){
                 responce = jokes.yomama();
             }
-        }
-        // memes
-        if (cmd[1] === 'help') {
-            responce = commands.help(cmd);
-        } else if (cmd[1] === 'add') {
-            responce = commands.add(cmd);
-        } else if (cmd[1] === 'remove') {
-            responce = commands.remove(cmd);
-
-        } else if (cmd[1] === 'random') {
-            responce = commands.random(cmd);
-
         } else {
-            responce = commands.fetchmeme(cmd);
+            // memes
+            if (cmd[1] === 'help') {
+                responce = commands.help(cmd);
+            } else if (cmd[1] === 'add') {
+                responce = commands.add(cmd);
+            } else if (cmd[1] === 'remove') {
+                responce = commands.remove(cmd);
 
+            } else if (cmd[1] === 'random') {
+                responce = commands.random(cmd);
+
+            } else {
+                responce = commands.fetchmeme(cmd);
+
+            }
         }
 
         // Return Responce
