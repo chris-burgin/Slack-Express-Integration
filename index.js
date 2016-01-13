@@ -27,17 +27,25 @@
         cmd = cmd.split(" ");
         if (cmd[1] === 'help') {
             responce = commands.help(cmd);
+            commands.sendmessage(responce, channel);
+
         } else if (cmd[1] === 'add') {
             responce = commands.add(cmd);
+            commands.sendmessage(responce, channel);
+
         } else if (cmd[1] === 'remove') {
             responce = commands.remove(cmd);
+            commands.sendmessage(responce, channel);
+
         } else if (cmd[1] === 'random') {
             responce = commands.random(cmd);
+            commands.sendmeme(responce, channel);
+
         } else {
             responce = commands.fetchmeme(cmd);
+            commands.sendmeme(responce, channel);
+            
         }
-
-        commands.send(responce, channel);
         //responce = {"text" : responce};
         //res.json(responce);
     });
