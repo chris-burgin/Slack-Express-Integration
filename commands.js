@@ -45,6 +45,7 @@
                 }
             }
             data.save(object, true);
+            return "We removed dat meme!";
         };
 
         // Random
