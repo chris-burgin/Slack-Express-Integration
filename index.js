@@ -6,6 +6,7 @@
     const express = require('express');
     const data = require('./data.js');
     const commands = require('./commands.js');
+    var bodyParser = require('body-parser');
 
     // Define Express
     const app = express();
