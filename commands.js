@@ -9,7 +9,7 @@
 
     // Slack API Entry Point
     const url = 'https://hooks.slack.com/services/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';
-    const slack = new Slack(url, options);
+    const slack = new Slack(url);
 
 
     // Database Functions
