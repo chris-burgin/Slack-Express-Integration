@@ -21,6 +21,7 @@
             	channel: '#' + channel,
             	username: 'Memz Bot',
                 unfurl_links: true,
+                unfurl_media: true,
             });
         };
 
