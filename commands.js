@@ -22,14 +22,7 @@
                         "username": 'memz bot',
                         "icon_emoji": ":taco:",
                         "text": responce,
-                        "unfurl_media": true,
-                        "attachments": [
-                                    {
-                                        "fallback": "MEME",
-                                        "image_url": responce,
-                                        "thumb_url": responce
-                                    }
-    ]
+                        "unfurl_media": true
                       };
 
             let options = {
